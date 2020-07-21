@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>后端测试</title>
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+	</head>
+	<body>
+			<button id="btn">点击向服务器发送数据</button>
+
+			<script>
+				$('#btn').on('click',function(){
+				$.ajax({
+					type:'get', //请求方式
+					url:'/api',  //请求地址
+					dataType:'JSON',
+					success:function(response) {  //请求成功以后函数被调用  response为服务器返回数据 该方法内部会将json字符串转为json对象
+						console.log(response);
+					},
+					error:function (xhr){  //请求失败后调用
+						console.log(xhr)
+					}
+				})
+				
+				//$.get('http://localhost:3000/api',function(response){ //get请求最简单写法
+					//console.log(response)
+				//})
+				}) 
+			</script>
+		</body>
+
+</html>
